@@ -11,7 +11,6 @@ interface Customer {
   mobile_number: number;
   line_type: number;
   charging_date: string | null;
-  renewal_date: string | null;
   arrival_time: string | null;
   provider: string | null;
   ownership: string | null;
@@ -38,7 +37,7 @@ export const UserDashboard = ({ userType, username }: UserDashboardProps) => {
     try {
       let query = supabase.from('customers').select(`
         id, customer_name, mobile_number, line_type, charging_date, 
-        renewal_date, arrival_time, provider, ownership, payment_status, 
+        arrival_time, provider, ownership, payment_status, 
         monthly_price, renewal_status, created_at, updated_at
       `);
       
@@ -179,7 +178,7 @@ export const UserDashboard = ({ userType, username }: UserDashboardProps) => {
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4 text-muted-foreground" />
                   <span className="font-medium">تاريخ التجديد:</span>
-                  <span className="text-orange-600 font-semibold">{formatRenewal(customer.charging_date, customer.renewal_date)}</span>
+                  <span className="text-orange-600 font-semibold">{formatRenewal(customer.charging_date, null)}</span>
                 </div>
               </div>
             </CardContent>

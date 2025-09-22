@@ -13,7 +13,6 @@ interface Customer {
   mobile_number: number;
   line_type: number;
   charging_date: string | null;
-  renewal_date: string | null;
   payment_status: string;
   monthly_price: number | null;
   renewal_status: string;

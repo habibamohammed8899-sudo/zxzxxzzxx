@@ -15,7 +15,6 @@ interface Customer {
   mobile_number: number;
   line_type: number;
   charging_date: string | null;
-  renewal_date: string | null;
   arrival_time: string | null;
   provider: string | null;
   ownership: string | null;
@@ -293,7 +292,7 @@ export const CustomerTable = ({ onAddCustomer, onAddBulkCustomers, onEditCustome
                 <TableCell>
                   <div className="flex items-center gap-2">
                     <Calendar className="h-4 w-4 text-muted-foreground" />
-                    {formatRenewal(customer.charging_date, customer.renewal_date)}
+                    {formatRenewal(customer.charging_date, null)}
                   </div>
                 </TableCell>
                 <TableCell>{getPaymentStatusBadge(customer.payment_status)}</TableCell>
